@@ -22,6 +22,8 @@ fetch('cards.json')
    console.log('Error:', error);
  });
 
+
+ 
 // Function to render the cards
 function renderCards(cards) {
  // Get the card container element
@@ -72,31 +74,20 @@ function handleFormDelete() {
       card.style.animation = 'fade-out 0.5s forwards';
     });
 
-      // Remove the card elements after the animation completes
+    // Remove the card elements after the animation completes
     setTimeout(function() {
       while (cardContainer.firstChild) {
         cardContainer.firstChild.remove();
       }
     }, 500); // Delay the removal by the duration of the animation (0.5s in this example)
-  
-
-    // Remove each card element
-    // while (cardContainer.firstChild) {
-    //     cardContainer.removeChild(cardContainer.firstChild)
-    // }
 }
 
 
+
 function handleFormSubmit() {
-    //event.preventDefault();
     console.log("submit button clicked");
     const form = document.getElementById('cardForm');
 
-    // retrieve values from form fields
-    // const name          = document.getElementById('inputName').value;
-    // const description   = document.getElementById('inputDescription').value;
-    // const price         = document.getElementById('inputPrice').value; 
-    // const imageUrl      = document.getElementById('inputImage').value;
     title = form.iname.value;
     description = form.description.value;
     price = form.price.value;
@@ -151,16 +142,3 @@ function addCardToGallery(card) {
    cardContainer.appendChild(cardElement);
    cardElements.push(cardElement)
 }
-
-
-// BONUS confetti on click
-function animateButton() {
-  console.log("confetti clicked");
-  confetti = document.getElementById("confetti");
-  confetti.classList.remove('animate');
-  
-  confetti.classList.add('animate');
-  setTimeout(function(){
-    confetti.classList.remove('animate');
-  }, 700);
-};
