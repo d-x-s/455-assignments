@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container-div">
+        <nav class="navbar">
+            <div class="logo">
+                <img class="pepe-logo" src="./images/pepe-logo.png" alt="The logo!!!">
+            </div>
+            <div class="header-links">
+                <a href="index.html">home</a>
+                <a href="about.html">about</a>
+                <a href="#">contact</a>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-signup">
+                <div class="hero-main-text">
+                    This website is about Pepe
+                </div>
+                <div class="hero-secondary-text">
+                    <div>
+                        Pepe the Frog is an anthromorphic frog character who has taken the internet by storm.
+                    </div>
+                    <div>
+                        He is now an infamous meme. Have you seen him?
+                    </div>
+                </div>
+                <button class="sign-up-button bubbly-button confetti-button" id="confetti">
+                    Now I have!
+                </button>
+            </div>
+            <img class="pepe" src="./images/pepe_signup.jpeg" alt="Sign up now!!!">
+        </div>
+
+        <div class="cards">
+            <div class="title">
+                Pepe is a master of expressions. Donate now!
+            </div>
+            <div class="gallery" id = cardContainer>
+                <!-- <div class="card">
+                    <img class="img" src="./images/pepe-happy.png" alt="">
+                    <div class="caption">Happy</div>
+                    <div class="donation">$10</div>
+                </div>
+                <div class="card">
+                    <img class="img" src="./images/pepe-smug.png" alt="">
+                    <div class="caption">Smug</div>
+                </div>
+                <div class="card">
+                    <img class="img" src="./images/pepe-sad.png" alt="">
+                    <div class="caption">Sad</div>
+                </div>
+                <div class="card">
+                    <img class="img" src="./images/pepe-clown.png" alt="">
+                    <div class="caption">Clown</div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="control">
+
+            <div class="form-container">
+
+                <button class="button delete-button" id="delete">
+                    Reset Cards
+                </button>
+
+                <form id="cardForm">
+                    <label for="iname">Item Name:</label><br>
+                    <input type="text" id="inputName" name="iname"><br>
+
+                    <label for="description">Describe his Emotion</label><br>
+                    <input type="text" id="inputDescription" name="description"><br>
+
+                    <label for="price">Amount</label><br>
+                    <input type="text" id="inputPrice" name="price"><br>
+
+                    <label for="image">Image URL</label><br>
+                    <input type="text" id="inputImage" name="image">
+                </form>
+
+                <button class="button submit-button" type="submit" id="submit"> Add Card </button>
+            </div>
+        </div>
+
+        <div class="quote">
+            <div class="quote-text">
+                Lacrimosa dies illa
+                Qua resurget ex favilla
+                Judicandus homo reus
+                Lacrimosa dies illa
+                Qua resurget ex favilla
+                Judicandus homo reus:
+                Huic ergo parce Deus
+                Pie Jesu, Jesu Domine
+                Dona eis requiem
+                Dona eis requiem
+                Amen
+            </div>
+            <div class="quote-author">
+                -Wolfgang Amadeus Mozart
+            </div>
+        </div>
+
+        <div class="action">
+            <div class="action-container">
+                <div class=text>
+                    <div class="text-title">Call to action! It's time!</div>
+                    <div class="text-caption">Sign up for Pepe newsletters by clicking that button right over there!
+                    </div>
+                </div>
+                <button class="sign-up-button-inverted">
+                    Sign up
+                </button>
+            </div>
+        </div>
+        <div class="footer">
+            <div>See the code on <a class="odin-credit" href="https://github.com/d-x-s/pepe-landing-page" style="text-decoration: underline">GitHub</a></div>
+        </div>
+    </div>
+</body>
+
+</html>
