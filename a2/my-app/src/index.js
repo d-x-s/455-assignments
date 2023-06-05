@@ -6,6 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { legacy_createStore } from 'redux';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux'; // gives app access to everything
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,10 +18,33 @@ let store = legacy_createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+// ROUTER -> page navigation
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: 'home',
+        element: <Home />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'contact',
+        element: <Contact />,
+      },
+    ],
+  },
+
+]);
+
 root.render(
   <Provider store={store}> 
     <React.StrictMode>
-      <App />
+      <RouterProvider router={router} />
     </React.StrictMode>
   </Provider>
 );
