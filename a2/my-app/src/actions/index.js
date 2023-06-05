@@ -10,3 +10,15 @@ export const decrement = () => {
         type: 'DECREMENT'
     }
 }
+
+export const addItem = (itemName, description, price, quantity) => {
+    return {
+        type: 'ADD_ITEM',
+        payload: {
+            itemName,
+            description,
+            price,
+            quantity
+        }
+    }
+}
