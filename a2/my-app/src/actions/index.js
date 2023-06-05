@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const increment = (num) => {
     return {
         type: 'INCREMENT',
@@ -11,14 +13,17 @@ export const decrement = () => {
     }
 }
 
-export const addItem = (itemName, description, price, quantity) => {
+export const addItem = (name, description, price, imageUrl) => {
+    const key = uuidv4(); // Generate a unique ID
+
     return {
         type: 'ADD_ITEM',
         payload: {
-            itemName,
+            key,
+            name,
             description,
             price,
-            quantity
+            imageUrl
         }
     }
 }

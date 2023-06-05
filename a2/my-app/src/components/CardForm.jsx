@@ -10,36 +10,55 @@ function CardForm() {
     flexDirection: 'column-reverse',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#F5F5F5',
+    padding: '20px',
+    borderRadius: '10px',
   };
-
+  
   const inputContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
+    marginBottom: '15px',
   };
-
+  
   const buttonStyle = {
-    // Button styles
-    backgroundColor: 'blue',
+    backgroundColor: '#4CAF50',
     color: 'white',
     padding: '10px',
     margin: '5px',
     borderRadius: '5px',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
   };
 
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const hoverButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: '#45a049',
+  };
+  
+  // Merge the styles based on the hover state
+  const getButtonStyle = (isHovered) => {
+    return isHovered ? hoverButtonStyle : buttonStyle;
+  };
+  
   const labelStyle = {
-    // Label styles
     fontWeight: 'bold',
     marginRight: '5px',
+    marginBottom: '5px',
   };
+
 
 
 
   // INITIALIZE FORM STATE
-  const [itemName, setItemName] = useState('');
+  const [name, setItemName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const [imageUrl, setQuantity] = useState('');
 
 
 
@@ -49,11 +68,11 @@ function CardForm() {
     e.preventDefault();
 
     // Dispatch the addItem action with the form data
-    dispatch(addItem(itemName, description, price, quantity));
+    dispatch(addItem(name, description, price, imageUrl));
   };
 
 
-  
+
   // CLEAR INPUTS
   const handleClear = (e) => {
     // Clear the form fields
@@ -65,7 +84,14 @@ function CardForm() {
 
   return (
     <div style={formContainerStyle}>
-      <button onClick={handleClear} style={buttonStyle} id="clear">Clear Input</button>
+      <button onClick={handleClear} 
+              id="clear"
+              style={getButtonStyle(isHovered)}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+      >
+                Clear Input
+      </button>
 
       <form onSubmit={handleSubmit}>
         <div style={inputContainerStyle}>
@@ -74,7 +100,7 @@ function CardForm() {
           type="text" 
           id="inputName" 
           name="iname" 
-          value={itemName}
+          value={name}
           onChange={(e) => setItemName(e.target.value)}
         />
 
@@ -96,17 +122,25 @@ function CardForm() {
           onChange={(e) => setPrice(e.target.value)}
         />
 
-        <label style={labelStyle} htmlFor="inputQuantity">Quantity:</label>
+        <label style={labelStyle} htmlFor="inputQuantity">Image URL:</label>
         <input 
           type="text" 
           id="inputQuantity" 
           name="quantity"
-          value={quantity}
+          value={imageUrl}
           onChange={(e) => setQuantity(e.target.value)}
         />
         </div>
 
-        <button style={buttonStyle} type="submit" id="submit">Add Card</button>
+        <button 
+          type="submit" 
+          id="submit"
+          style={getButtonStyle(isHovered)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          Add Card
+        </button>
 
       </form>
     </div>
