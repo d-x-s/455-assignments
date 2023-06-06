@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Popup from './Popup';
 
 const imageStyle = {
     width: 100,
@@ -10,15 +11,28 @@ const imageStyle = {
 }
 
 const cardStyle = {
+    position: 'relative',
     paddingLeft: 20,
     paddingRight: 20,
 }
 
-function Card({ itemName, imageUrl, onClick }) {
+function Card({ itemName, imageUrl, price, description, key }) {
+
+    const [isPopupVisible, setPopupVisible] = useState(false);
+
+    const onClick = (e) => {
+        // look up the id and render the popup component
+        console.log(price, description);
+        setPopupVisible(!isPopupVisible);
+      }
+
     return (
-        <div style={cardStyle} onClick={onClick}>
+        <div style={cardStyle} onClick={(e) => onClick(e)}>
             <h3>{itemName}</h3>
             <img src={imageUrl} alt={itemName} style={imageStyle}/>
+            {isPopupVisible 
+                && 
+            <Popup itemName={itemName} />}
       </div>
     )
 }

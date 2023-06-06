@@ -16,7 +16,9 @@ function Gallery({ cards }) {
         {/* Render cards based on the items array */}
         {cards.map(card => (
           <Card
-            // key={card.id} // Make sure to provide a unique key prop for each item
+            key={card.key}
+            price={card.price} // Make sure to provide a unique key prop for each item
+            description={card.description}
             itemName={card.name}
             imageUrl={card.imageUrl}
           />

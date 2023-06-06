@@ -11,7 +11,7 @@ function Navbar() {
             <div className="header-links">
                 <Link to="/home">counter</Link>
                 <Link to="/about">form</Link>
-                <Link to="/contact">view</Link>
+                <Link to="/contact">galley</Link>
             </div>
         </nav>
     </div>

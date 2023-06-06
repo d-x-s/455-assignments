@@ -27,3 +27,10 @@ export const addItem = (name, description, price, imageUrl) => {
         }
     }
 }
+
+export const deleteItem = (itemName) => {
+    return {
+      type: 'DELETE_ITEM',
+      itemName: itemName,
+    };
+  };
