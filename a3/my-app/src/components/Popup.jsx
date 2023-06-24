@@ -37,7 +37,7 @@ function Popup({ selectedItem }) {
 
 // Map the state from Redux store to component props
 const mapStateToProps = (state, { itemName }) => ({
-    selectedItem: state.form.items.find(item => item.name === itemName), // Assuming `items` is the property name in your Redux store
+    selectedItem: state.items.form.items.find(item => item.name === itemName), // Assuming `items` is the property name in your Redux store
   });
 
 const mapDispatchToProps = {

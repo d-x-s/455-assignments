@@ -80,7 +80,7 @@ router.delete('/:keyID', (req, res) => {
 
   if (data[keyID]) {
     delete data[keyID];
-    res.json({ message: "user profile " + keyID + " deleted successfully." });
+    res.json(keyID);
   } else {
     res.status(404).json({ error: 'card not found' })
   }

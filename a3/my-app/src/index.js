@@ -3,20 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { legacy_createStore } from 'redux';
-import rootReducer from './reducers';
+// import { legacy_createStore } from 'redux';
+// import rootReducer from './reducers';
 import { Provider } from 'react-redux'; // gives app access to everything
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import Home from './pages/Counter';
+import About from './pages/Form';
+import Contact from './pages/Gallery';
+import Server from './pages/Server';
+import ServerFilter from './pages/Filter';
+
+import { store } from './redux/store'
+//  import { Server } from './components/Server';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // STORE -> holds all the state
-let store = legacy_createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// let store = legacy_createStore(
+//   rootReducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 // ROUTER -> page navigation
 const router = createBrowserRouter([
@@ -35,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <Contact />,
+      },
+      {
+        path: 'server',
+        element: <Server />,
+      },
+      {
+        path: 'filter',
+        element: <ServerFilter />,
       },
     ],
   },

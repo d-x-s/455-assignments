@@ -29,7 +29,7 @@ function Gallery({ cards }) {
 
 // Map the state from Redux store to component props
 const mapStateToProps = state => ({
-    cards: state.form.items // Assuming `items` is the property name in your Redux store
+    cards: state.items.form.items // Assuming `items` is the property name in your Redux store
   });
   
 // Connect the Gallery component to the Redux store
