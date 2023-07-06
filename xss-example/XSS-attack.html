@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XSS Attack Site!</title>
+        <script>
+            function addToList(e) {
+                e.preventDefault();
+                const ul_blog_posts = document.getElementById("blog_posts");
+                const blogItem = document.createElement("li");
+                blogItem.innerHTML = document.getElementById("crazyText").value;
+                ul_blog_posts.appendChild(blogItem);
+            }
+        </script>
+    </head>
+    <body>
+
+        <h2>XSS Attack Site!</h2>
+
+        <form>
+            <label for="crazyText">Type your post:</label><br>
+            <input type="text" id="crazyText" name="crazyText" value=""><br>
+            <button type="submit" onClick="addToList(event);">Submit</button>
+        </form>
+
+        <h3>My Blog Posts</h3>
+        <ul id="blog_posts">
+            <li>
+                Item
+            </li>
+        </ul>
+
+    </body>
+</html>
