@@ -5,9 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 
+require('dotenv').config();
+const connectDB = require('./config')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var cardsRouter = require('./routes/cards');
+
+connectDB.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var app = express();
 const port = 4000;
