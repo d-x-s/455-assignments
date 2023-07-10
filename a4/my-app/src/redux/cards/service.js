@@ -1,5 +1,5 @@
 const addCard = async (card) => {
-    const response = await fetch("http://localhost:4000/cards", {
+    const response = await fetch("http://localhost:4000/database", {
         method: "POST",
         headers: {
         "Content-Type": "application/json"
@@ -11,19 +11,24 @@ const addCard = async (card) => {
         const errorMsg = data?.message;
         throw new Error(errorMsg)
     }
+    console.log(data);
     return data;
 };
 
 const getCards = async () => {
-    const response = await fetch("http://localhost:4000/cards", {
+    const response = await fetch("http://localhost:4000/database/all", {
         method: "GET"
     });
     return response.json();
 };
 
-const deleteCard = async (cardName) => {
-    const response = await fetch(`http://localhost:4000/cards/${cardName}`, {
+const deleteCard = async (cardID) => {
+    const response = await fetch(`http://localhost:4000/database`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+        },
+      body: JSON.stringify(cardID)
     });
     const data = await response.json();
     if (!response.ok) {

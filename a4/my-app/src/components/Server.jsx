@@ -30,11 +30,13 @@ export const Server = () => {
       <div style={galleryStyle}>
         {cards.map((card) => (
           <ServerCard
-          key={card.key}
+          key={card._id}
+          id={card._id}
           price={card.price} // Make sure to provide a unique key prop for each item
           description={card.description}
           itemName={card.name}
-          imageUrl={card.imageUrl}
+          imageURL={card.imageURL}
+          rating={card.rating}
         />
         ))}
       </div>

@@ -9,9 +9,11 @@ const ServerFilter = () => {
   useEffect(() => {
     const fetchFilteredCards = async () => {
       try {
-        const url = `http://localhost:4000/cards/filter?${sortingCriteria}=${filterValue}`;
+        //const url = `http://localhost:4000/cards/filter?${sortingCriteria}=${filterValue}`;
+        const url = `http://localhost:4000/database/filter?${sortingCriteria}=${filterValue}`;
         const response = await fetch(url);
         const data = await response.json();
+        console.log(data);
         setFilteredCards(data);
       } catch (error) {
         console.error('Error fetching filtered cards:', error);
@@ -47,11 +49,12 @@ const ServerFilter = () => {
       </form>
       {filteredCards.map(card => (
         <ServerCard
-          key={card.key}
+          key={card._id}
+          itemName={card.name}
           price={card.price}
           description={card.description}
-          itemName={card.name}
-          imageUrl={card.imageUrl}
+          imageURL={card.imageURL}
+          rating={card.rating}
         />
       ))}
     </div>

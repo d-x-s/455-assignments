@@ -48,7 +48,7 @@ const cardsSlice = createSlice({
             })
             .addCase(deleteCardAsync.fulfilled, (state, action) => {
                 state.deleteCard = REQUEST_STATE.FULFILLED;
-                state.list = state.list.filter(card => card.key !== action.payload);
+                state.list = state.list.filter(card => card._id !== action.payload._id);
             })
             .addCase(deleteCardAsync.rejected, (state, action) => {
                 state.deleteCard = REQUEST_STATE.REJECTED;

@@ -18,18 +18,19 @@ const popupStyle = {
   alignItems: 'center',
   };
 
-function ServerPopup({ itemName, itemPrice }) {
+function ServerPopup({ id, itemName, itemPrice, rating }) {
   const dispatch = useDispatch();
   console.log("selected item is " + itemName);
 
   const handleDelete = () => {
-    console.log("trying to delete card with name: " + itemName);
-    dispatch(deleteCardAsync(itemName))
+    console.log("trying to delete card with id: " + id);
+    dispatch(deleteCardAsync({_id: id}))
   };
 
   return (
     <div style={popupStyle}>
         <p>${ itemPrice }</p>
+        <p>{ rating }/5</p>
       <button onClick={handleDelete}>Delete</button>
     </div>
   )

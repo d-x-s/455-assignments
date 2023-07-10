@@ -18,7 +18,7 @@ export const addCardAsync = createAsyncThunk(
 
 export const deleteCardAsync = createAsyncThunk(
   actionTypes.DELETE_CARD_CARD,
-  async (cardName) => {
-    return await CardService.deleteCard(cardName);
+  async (cardID) => {
+    return await CardService.deleteCard(cardID);
   }
 );

@@ -16,24 +16,28 @@ const cardStyle = {
     paddingRight: 20,
 }
 
-function ServerCard({ itemName, imageUrl, price, description, key }) {
+function ServerCard({ id, itemName, imageURL, price, description, rating }) {
 
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const onClick = (e) => {
         // look up the id and render the popup component
-        console.log(price, description);
+        console.log(id, price, description, imageURL);
         setPopupVisible(!isPopupVisible);
       }
 
     return (
         <div style={cardStyle} onClick={(e) => onClick(e)}>
             <h3>{itemName}</h3>
-            <h3>{key}</h3>
-            <img src={imageUrl} alt={itemName} style={imageStyle}/>
+            <img src={imageURL} alt={itemName} style={imageStyle}/>
             {isPopupVisible 
                 && 
-            <ServerPopup itemName={itemName} itemPrice={price}/>}
+            <ServerPopup 
+                id={id}
+                itemName={itemName} 
+                itemPrice={price}
+                rating={rating}
+            />}
       </div>
     )
 }

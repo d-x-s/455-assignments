@@ -60,7 +60,8 @@ function ServerForm() {
   const [name, setItemName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [imageUrl, setQuantity] = useState('');
+  const [imageURL, setQuantity] = useState('');
+  const [rating, setRating] = useState('');
 
 
 
@@ -70,7 +71,7 @@ function ServerForm() {
     e.preventDefault();
 
     // Dispatch the addItem action with the form data 
-    const card = { name, description, price, imageUrl };
+    const card = { name, description, price, imageURL, rating };
     dispatch(addCardAsync(card));
   };
 
@@ -83,7 +84,14 @@ function ServerForm() {
     setDescription('');
     setPrice('');
     setQuantity('');
+    setRating('');
   }
+
+
+  // RATING HANDLERS
+  const handleRatingClick = (selectedRating) => {
+    setRating(selectedRating);
+  };
 
   return (
     <div style={formContainerStyle}>
@@ -130,9 +138,30 @@ function ServerForm() {
           type="text" 
           id="inputQuantity" 
           name="quantity"
-          value={imageUrl}
+          value={imageURL}
           onChange={(e) => setQuantity(e.target.value)}
         />
+
+        {/* <label style={labelStyle} htmlFor="inputRating">Rating:</label>
+        <input
+          type="number"
+          id="inputRating"
+          name="rating"
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
+        /> */}
+
+        <label style={labelStyle}>Rating:</label>
+          <div>
+            {[1, 2, 3, 4, 5].map((value) => (
+              <Star
+                key={value}
+                selected={value <= rating}
+                onClick={() => handleRatingClick(value)}
+              />
+            ))}
+          </div>
+
         </div>
 
         <button 
@@ -147,6 +176,14 @@ function ServerForm() {
 
       </form>
     </div>
+  );
+}
+
+function Star({ selected, onClick }) {
+  return (
+    <span style={{ cursor: 'pointer' }} onClick={onClick}>
+      {selected ? '★' : '☆'}
+    </span>
   );
 }
 
