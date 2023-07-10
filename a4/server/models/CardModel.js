@@ -2,23 +2,31 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const MealSchema = new Schema(
+const CardSchema = new Schema(
   {
-    userInfoID: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'UserInfo',
+    _id: {
+      type: Schema.Types.ObjectId,
+      auto: true,
     },
-    schedule: {
-      type: Object,
-      required: [true, 'Please add a schedule'],
+    name: {
+      type: String,
+      required: [true, 'Please add a name'],
+      unique: true,
     },
-    inputs: {
-      type: [String],
-      required: false,
+    description: {
+      type: String,
+    },
+    price: {
+      type: Number,
+    },
+    imageURL: {
+      type: String,
+    },
+    rating: {
+        type: Number,
     },
   },
   { timestamps: true },
 );
 
-module.exports = mongoose.model('Meal', MealSchema);
+module.exports = mongoose.model('Cards', CardSchema);
