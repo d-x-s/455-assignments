@@ -41,7 +41,14 @@ const deleteCard = asyncHandler(async (req, res) => {
 
     // send result back to user
     if (card) {
-        res.status(201).json({ message: 'the card ' + card.name + ' was deleted successfully'});
+        res.status(201).json({
+        _id: card._id,
+        name: card.name,
+        description: card.description,
+        price: card.price,
+        imageURL: card.imageURL,
+        rating: card.rating
+    })    
     } else {
         res.status(400).json({ message: 'card could not be deleted' });
     }
