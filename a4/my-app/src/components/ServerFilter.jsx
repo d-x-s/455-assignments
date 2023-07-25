@@ -10,7 +10,8 @@ const ServerFilter = () => {
     const fetchFilteredCards = async () => {
       try {
         //const url = `http://localhost:4000/cards/filter?${sortingCriteria}=${filterValue}`;
-        const url = `http://localhost:4000/database/filter?${sortingCriteria}=${filterValue}`;
+        //const url = `http://localhost:4000/database/filter?${sortingCriteria}=${filterValue}`;
+        const url = `https://davis455.onrender.com/database/filter?${sortingCriteria}=${filterValue}`;
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
