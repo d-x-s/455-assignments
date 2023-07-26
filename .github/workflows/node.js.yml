@@ -16,7 +16,6 @@ jobs:
     defaults:
       run:
         working-directory: ./a4
-    with:
 
     strategy:
       matrix:
