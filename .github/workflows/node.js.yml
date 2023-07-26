@@ -13,6 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./a4
 
     strategy:
       matrix:
@@ -26,8 +29,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Change to a4 directory
-      working-directory: ./a4
+        cache-dependency-path: 'a4/package-lock.json'
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
