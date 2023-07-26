@@ -3,6 +3,10 @@ const Cards = require('../models/CardModel');
 const asyncHandler = require('express-async-handler');
 
 const createCard = asyncHandler(async (req, res) => {
+  if (!req) {
+    res.status(400).json({ message: 'card could not be created' });
+  }
+
     const data = {
         name,
         description,
@@ -55,22 +59,22 @@ const deleteCard = asyncHandler(async (req, res) => {
 });
 
 const getCard = asyncHandler(async (req, res) => {
-    // retrieve the card from the database
-    const card = await Cards.findByIdAndDelete(req.body._id);
+  // Retrieve the card from the database using the ID from the request parameters
+  const card = await Cards.findById(req.params.cardId);
 
-    // send result back to user
-    if (card) {
-        res.status(201).json({
-            _id: card._id,
-            name: card.name,
-            description: card.description,
-            price: card.price,
-            imageURL: card.imageURL,
-            rating: card.rating
-        })
-    } else {
-        res.status(400).json({ message: 'card could not be found' });
-    }
+  // Send the result back to the user
+  if (card) {
+    res.status(201).json({
+      _id: card._id,
+      name: card.name,
+      description: card.description,
+      price: card.price,
+      imageURL: card.imageURL,
+      rating: card.rating
+    });
+  } else {
+    res.status(404).json({ message: 'Card not found' });
+  }
 });
 
 const getAllCards = asyncHandler(async (req, res) => {
