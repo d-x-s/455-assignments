@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: a4
+        working-directory: ./a4
+    with:
 
     strategy:
       matrix:
@@ -24,6 +25,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with: 
+         node-version: ${{ matrix.node-version }}
+         cache: 'npm'
+         cache-dependency-path: 'a4/package.lock.json'
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
