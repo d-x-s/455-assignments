@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "jest": "^29.6.1",
     "react-redux": "^8.0.7",
     "redux": "^4.2.1"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
     "nodemon": "^2.0.22"
   },
   "scripts": {
@@ -11,7 +14,8 @@
     "start-server": "cd server && node app.js",
     "install-client": "cd my-app && npm install",
     "build-client": "cd my-app && npm run build",
-    "start-client": "cd my-app && npm run start"
+    "start-client": "cd my-app && npm run start",
+    "test": "jest"
   },
   "name": "a4",
   "version": "1.0.0",
@@ -19,5 +23,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "babel": {
+    "presets": ["@babel/preset-react"]
+  }
 }
