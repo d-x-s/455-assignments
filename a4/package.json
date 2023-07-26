@@ -7,6 +7,18 @@
     "nodemon": "^2.0.22"
   },
   "scripts": {
-    "start": "nodemon app.js"
-  }
+    "start": "nodemon app.js",
+    "install-server": "cd backend && npm install",
+    "start-server": "cd backend && node app.js",
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "start-client": "cd client && npm run start"
+  },
+  "name": "a4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
