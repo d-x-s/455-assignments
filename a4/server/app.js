@@ -19,6 +19,9 @@ var app = express();
 const port = 4000;
 
 app.use(cors());
+const corsOptions = {
+  origin: "https://davis-455-frontend.onrender.com/", // use to restrict requests
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
